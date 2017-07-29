@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Hex</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdn.rawgit.com/atomiks/tippyjs/3f478e3d/dist/tippy.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/4.0.0-alpha.1/css/bootstrap-switch.min.css'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  
+<nav class="navbar navbar-inverse bg-primary">
+  <h1 class="navbar-brand">Model New Zealand Election</h1>
+  <button class="btn btn-warning weak-toggle" type="button" data-toggle="collapse" data-target="#weak-parties" aria-expanded="false" aria-controls="weak-parties">Toggle minor parties</button>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col" style="text-align: center">
+      <div class="hex-grid">
+        <div class="title">
+          <h5>New Zealand</h5>
+          <h3>Electorates</h3>
+          <h6>Map</h6>
+        </div>
+        <div class="north island">
+          <ul class="even hex-row">
+            <li>
+              <div class="hexagon">Northland</div>
+            </li>
+            <li>
+              <div class="hexagon">Whangarei</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row">
+            <li>
+              <div class="hexagon">Rodney</div>
+            </li>
+          </ul>
+          <ul class="even hex-row">
+            <li>
+              <div class="hexagon">Helensville</div>
+            </li>
+            <li>
+              <div class="hexagon">East Coast Bays</div>
+            </li>
+            <li>
+              <div class="hexagon">North Shore</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row">
+            <li>
+              <div class="hexagon">Upper Harbour</div>
+            </li>
+            <li>
+              <div class="hexagon">Northcote</div>
+            </li>
+          </ul>
+          <ul class="even hex-row">
+            <li>
+              <div class="hexagon">Te Atatū</div>
+            </li>
+            <li>
+              <div class="hexagon">Auckland Central</div>
+            </li>
+            <li>
+              <div class="hexagon">Tāmaki</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row">
+            <li>
+              <div class="hexagon">Mt Albert</div>
+            </li>
+            <li>
+              <div class="hexagon">Epsom</div>
+            </li>
+            <li>
+              <div class="hexagon">Maungakiekie</div>
+            </li>
+            <li>
+              <div class="hexagon">Pakuranga</div>
+            </li>
+          </ul>
+          <ul class="even hex-row">
+            <li>
+              <div class="hexagon">Kelston</div>
+            </li>
+            <li>
+              <div class="hexagon">Mt Roskill</div>
+            </li>
+            <li>
+              <div class="hexagon">Manakau East</div>
+            </li>
+            <li>
+              <div class="hexagon">Botany</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row one">
+            <li>
+              <div class="hexagon">New Lynn</div>
+            </li>
+            <li>
+              <div class="hexagon">Māngere</div>
+            </li>
+            <li>
+              <div class="hexagon">Manurewa</div>
+            </li>
+          </ul>
+          <ul class="even hex-row two">
+            <li>
+              <div class="hexagon">Papakura</div>
+            </li>
+            <li>
+              <div class="hexagon">Hunua</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row two">
+            <li>
+              <div class="hexagon">Waikato</div>
+            </li>
+            <li>
+              <div class="hexagon">Coromandel</div>
+            </li>
+          </ul>
+          <ul class="even hex-row two">
+            <li>
+              <div class="hexagon">Hamilton West</div>
+            </li>
+            <li>
+              <div class="hexagon">Hamilton East</div>
+            </li>
+            <li>
+              <div class="hexagon">Bay of Plenty</div>
+            </li>
+            <li>
+              <div class="hexagon">Tauranga</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row two">
+            <li>
+              <div class="hexagon">Taranaki</div>
+            </li>
+            <li>
+              <div class="hexagon">Taupo</div>
+            </li>
+            <li>
+              <div class="hexagon">East Coast</div>
+            </li>
+          </ul>
+          <ul class="even hex-row two">
+            <li>
+              <div class="hexagon">New Plymouth</div>
+            </li>
+            <li>
+              <div class="hexagon">Whanganui</div>
+            </li>
+            <li>
+              <div class="hexagon">Rotorua</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row two">
+            <li>
+              <div class="hexagon">Rangitīkei</div>
+            </li>
+            <li>
+              <div class="hexagon">Napier</div>
+            </li>
+          </ul>
+          <ul class="even hex-row two">
+            <li>
+              <div class="hexagon">Palmerston North</div>
+            </li>
+            <li>
+              <div class="hexagon">Tukituki</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row one">
+            <li>
+              <div class="hexagon">Ōtaki</div>
+            </li>
+            <li>
+              <div class="hexagon">Wairarapa</div>
+            </li>
+          </ul>
+          <ul class="even hex-row one">
+            <li>
+              <div class="hexagon">Mana</div>
+            </li>
+            <li>
+              <div class="hexagon">Rimutaka</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row">
+            <li>
+              <div class="hexagon">Ōhariu</div>
+            </li>
+            <li>
+              <div class="hexagon">Hutt South</div>
+            </li>
+          </ul>
+          <ul class="even hex-row">
+            <li>
+              <div class="hexagon">Wellington Central</div>
+            </li>
+            <li>
+              <div class="hexagon">Rongotai</div>
+            </li>
+          </ul>
+        </div>
+        <div class="south island">
+          <ul class="even hex-row four">
+            <li>
+              <div class="hexagon">Nelson</div>
+            </li>
+            <li>
+              <div class="hexagon">Kaikōura</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row four">
+            <li>
+              <div class="hexagon">Waimakariri</div>
+            </li>
+          </ul>
+          <ul class="even hex-row three">
+            <li>
+              <div class="hexagon">West Coast-Tasman</div>
+            </li>
+            <li>
+              <div class="hexagon">Selwyn</div>
+            </li>
+            <li>
+              <div class="hexagon">Christchurch East</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row three">
+            <li>
+              <div class="hexagon">Ilam</div>
+            </li>
+            <li>
+              <div class="hexagon">Christchurch Central</div>
+            </li>
+          </ul>
+          <ul class="even hex-row three">
+            <li>
+              <div class="hexagon">Wigram</div>
+            </li>
+            <li>
+              <div class="hexagon">Port Hills</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row two">
+            <li>
+              <div class="hexagon">Rangitata</div>
+            </li>
+          </ul>
+          <ul class="even hex-row two">
+            <li>
+              <div class="hexagon">Waitaki</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row one">
+            <li>
+              <div class="hexagon">Dunedin South</div>
+            </li>
+            <li>
+              <div class="hexagon">Dunedin North</div>
+            </li>
+          </ul>
+          <ul class="even hex-row one">
+            <li>
+              <div class="hexagon">Clutha-Southland</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row">
+            <li>
+              <div class="hexagon">Invercargill</div>
+            </li>
+          </ul>
+        </div>
+        <div class="maori electorates">
+          <ul class="even hex-row">
+            <li>
+              <div class="hexagon">Te Tai Tokerau</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row">
+            <li>
+              <div class="hexagon">Tāmaki Makaurau</div>
+            </li>
+          </ul>
+          <ul class="even hex-row one">
+            <li>
+              <div class="hexagon">Hauraki-Waikato</div>
+            </li>
+            <li>
+              <div class="hexagon">Waiariki</div>
+            </li>
+          </ul>
+          <ul class="odd hex-row one">
+            <li>
+              <div class="hexagon">Te Tai Hauāuru</div>
+            </li>
+            <li>
+              <div class="hexagon">Ikaroa-Rāwhiti</div>
+            </li>
+          </ul>
+          <ul class="even hex-row">// AKA the Cook Strait
+            <li></li>
+          </ul>
+          <ul class="odd hex-row one">
+            <li>
+              <div class="hexagon">Te Tai Tonga</div>
+            </li>
+          </ul>
+          <h6>Māori Electorates</h6>
+        </div>
+      </div>
+    </div>
+    <div class="col party-votes">
+      <h3>Party Votes</h3>
+      <input type="checkbox" name="total-votes" data-on-text="Total" data-off-text="%" data-off-color="warning"/>
+      <table class="table" id="strong-parties">
+        <thead>
+          <tr>
+            <th>Party</th>
+            <th>Votes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="percentage-warning hide">
+            <td colspan="2">
+              <div class="alert alert-danger" role="alert"><strong>Oh snap!</strong> Your numbers go over 100%</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table collapse" id="weak-parties">
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="col results">
+      <h3>Your Parliament</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Party</th>
+            <th>Electorates</th>
+            <th>Votes</th>
+            <th>Seats</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script id="dropdown-template" type="text/x-handlebars-template">
+  <div id="dropdown-{{id}}" class="dropdown">
+  <h5>{{electorate}}</h5>
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton-{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{default}}</button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-{{id}}">
+  {{#each options}}
+  <button class="dropdown-item{{#inArray ../weakParties @key}} weak{{/inArray}}" value="{{@key}}">{{this}}</a>
+  {{/each}}
+  </div>
+  <button type="button" class="btn btn-outline-secondary reset"><i class="material-icons">settings_backup_restore</i></button>
+  </div>
+  
+</script>
+<script id="table-row" type="text/x-handlebars-template">
+  <td>{{party}}</td>
+  <td><input class="form-control votes-input" type="number" data-party="{{partyCode}}" value="{{value}}" step="0.1" min="0"/></td>
+  
+</script>
+<script id="results-row" type="text/x-handlebars-template">
+  <td>{{party}}</td>
+  <td>{{electorates}}</td>
+  <td>{{votes}}%</td>
+  <td>{{seats}}
+</script>
+  <script src='https://cdn.rawgit.com/atomiks/tippyjs/3f478e3d/dist/tippy.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/4.0.0-alpha.1/js/bootstrap-switch.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

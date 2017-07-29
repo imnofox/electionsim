@@ -1,0 +1,200 @@
+.container {
+  margin-top: 20px;
+}
+nav h1 {
+  margin: 0;
+}
+nav button {
+  position: absolute;
+  right: 16px;
+}
+.hex-grid {
+  display: inline-block;
+  padding: 13.33333333px 13.33333333px 13.33333333px 2.33333333px;
+  font-size: 0px;
+  text-align: left;
+}
+.hex-grid ul {
+  display: block;
+  padding: 0;
+}
+.hex-grid li {
+  list-style-type: none;
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  padding: 0 0 23.33333333px 0;
+  -o-transform: rotate(-60deg) skewY(30deg);
+  -moz-transform: rotate(-60deg) skewY(30deg);
+  -webkit-transform: rotate(-60deg) skewY(30deg);
+  -ms-transform: rotate(-60deg) skewY(30deg);
+  transform: rotate(-60deg) skewY(30deg);
+  background: #fd005f;
+  overflow: hidden;
+  visibility: hidden;
+  margin-left: 0px;
+  margin-right: 2px;
+}
+.hex-grid li .hexagon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  -o-transform: skewY(-30deg) rotate(60deg);
+  -moz-transform: skewY(-30deg) rotate(60deg);
+  -webkit-transform: skewY(-30deg) rotate(60deg);
+  -ms-transform: skewY(-30deg) rotate(60deg);
+  transform: skewY(-30deg) rotate(60deg);
+  text-indent: -99999px;
+}
+.hex-grid li .hexagon.active {
+  opacity: 0.6;
+}
+.hex-grid li * {
+  visibility: visible;
+}
+.hex-grid .hex-row {
+  margin-bottom: -4px;
+}
+.hex-grid .odd.hex-row {
+  margin-left: 11px;
+}
+.hex-grid .odd.hex-row.one {
+  margin-left: 33px;
+}
+.hex-grid .even.hex-row.one {
+  margin-left: 22px;
+}
+.hex-grid .odd.hex-row.two {
+  margin-left: 55px;
+}
+.hex-grid .even.hex-row.two {
+  margin-left: 44px;
+}
+.hex-grid .odd.hex-row.three {
+  margin-left: 77px;
+}
+.hex-grid .even.hex-row.three {
+  margin-left: 66px;
+}
+.hex-grid .odd.hex-row.four {
+  margin-left: 99px;
+}
+.hex-grid .even.hex-row.four {
+  margin-left: 88px;
+}
+.north.island {
+  margin-left: 154px;
+}
+.south.island {
+  margin-top: -23px;
+}
+.maori.electorates {
+  margin-top: -403px;
+}
+.maori.electorates h6 {
+  margin-top: 13.33333333px;
+}
+.tippy-popper {
+  font-family: 'Roboto', sans-serif;
+}
+.hex-grid .hexagon.party-national {
+  background-color: #6347ff;
+}
+.hex-grid .hexagon.party-labour {
+  background-color: tomato;
+}
+.hex-grid .hexagon.party-act {
+  background-color: #fdbf00;
+}
+.hex-grid .hexagon.party-nzf {
+  background-color: #3c3c3c;
+}
+.hex-grid .hexagon.party-united {
+  background-color: #865C8B;
+}
+.hex-grid .hexagon.party-greens {
+  background-color: #3fe559;
+}
+.hex-grid .hexagon.party-māori {
+  background-color: #993b2a;
+}
+.hex-grid .hexagon.party-conservative {
+  background-color: #47e3ff;
+}
+.hex-grid .hexagon.party-top {
+  background-color: #ff47e3;
+}
+.hex-grid .hexagon.party-internet {
+  background-color: #612B8B;
+}
+.hex-grid .hexagon.party-mana {
+  background-color: #770808;
+}
+.hex-grid .hexagon.party-social {
+  background-color: #339966;
+}
+.hex-grid .hexagon.party-ban1080 {
+  background-color: #cc8400;
+}
+.hex-grid .hexagon.party-alcp {
+  background-color: #294627;
+}
+.hex-grid .hexagon.party-peoples {
+  background-color: #806755;
+}
+.btn,
+.dropdown-item {
+  cursor: pointer;
+}
+.btn-outline-secondary {
+  max-height: 38px;
+}
+.material-icons {
+  line-height: 0.8;
+}
+.hex-grid .title {
+  position: absolute;
+  width: 150px;
+  text-align: center;
+  left: 0;
+}
+.hex-grid .title > * {
+  display: inline-block;
+  margin: 0;
+}
+.party-votes h3 {
+  display: inline-block;
+}
+.party-votes .bootstrap-switch {
+  float: right;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.party-votes .bootstrap-switch.bootstrap-switch-focused {
+  box-shadow: none;
+  border-color: #5cb3fd;
+}
+.percentage-warning .alert {
+  margin-bottom: 0;
+}
+.party-votes table {
+  margin-bottom: 0;
+}
+.party-votes table td:nth-child(2) {
+  width: 50%;
+}
+.hide {
+  display: none;
+}
+.weak-shown .dropdown-item.weak {
+  display: block;
+}
+.weak-shown .results table .weak {
+  display: table-row;
+}
+.dropdown-item.weak,
+.results table .weak {
+  display: none;
+}

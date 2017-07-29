@@ -1,0 +1,240 @@
+nav.navbar.navbar-inverse.bg-primary
+  h1.navbar-brand Model New Zealand Election
+  button.btn.btn-warning.weak-toggle(type="button" data-toggle="collapse" data-target="#weak-parties" aria-expanded="false" aria-controls="weak-parties") Toggle minor parties
+  
+.container
+  .row
+    .col(style='text-align: center')
+      .hex-grid
+        .title
+          h5 New Zealand
+          h3 Electorates
+          h6 Map
+        .north.island
+          ul.even.hex-row
+            li
+              .hexagon Northland
+            li
+              .hexagon Whangarei
+          ul.odd.hex-row
+            li
+              .hexagon Rodney
+          ul.even.hex-row
+            li
+              .hexagon Helensville
+            li
+              .hexagon East Coast Bays
+            li
+              .hexagon North Shore
+          ul.odd.hex-row
+            li
+              .hexagon Upper Harbour
+            li
+              .hexagon Northcote
+          ul.even.hex-row
+            li
+              .hexagon Te Atatū
+            li
+              .hexagon Auckland Central
+            li
+              .hexagon Tāmaki
+          ul.odd.hex-row
+            li
+              .hexagon Mt Albert
+            li
+              .hexagon Epsom
+            li
+              .hexagon Maungakiekie
+            li
+              .hexagon Pakuranga
+          ul.even.hex-row
+            li
+              .hexagon Kelston
+            li
+              .hexagon Mt Roskill
+            li
+              .hexagon Manakau East
+            li
+              .hexagon Botany
+          ul.odd.hex-row.one
+            li
+              .hexagon New Lynn
+            li
+              .hexagon Māngere
+            li
+              .hexagon Manurewa
+          ul.even.hex-row.two
+            li
+              .hexagon Papakura
+            li
+              .hexagon Hunua
+          ul.odd.hex-row.two
+            li
+              .hexagon Waikato
+            li
+              .hexagon Coromandel
+          ul.even.hex-row.two
+            li
+              .hexagon Hamilton West
+            li
+              .hexagon Hamilton East
+            li
+              .hexagon Bay of Plenty
+            li
+              .hexagon Tauranga
+          ul.odd.hex-row.two
+            li
+              .hexagon Taranaki
+            li
+              .hexagon Taupo
+            li
+              .hexagon East Coast
+          ul.even.hex-row.two
+            li
+              .hexagon New Plymouth
+            li
+              .hexagon Whanganui
+            li
+              .hexagon Rotorua
+          ul.odd.hex-row.two
+            li
+              .hexagon Rangitīkei
+            li
+              .hexagon Napier
+          ul.even.hex-row.two
+            li
+              .hexagon Palmerston North
+            li
+              .hexagon Tukituki
+          ul.odd.hex-row.one
+            li
+              .hexagon Ōtaki
+            li
+              .hexagon Wairarapa
+          ul.even.hex-row.one
+            li
+              .hexagon Mana
+            li
+              .hexagon Rimutaka
+          ul.odd.hex-row
+            li
+              .hexagon Ōhariu
+            li
+              .hexagon Hutt South
+          ul.even.hex-row
+            li
+              .hexagon Wellington Central
+            li
+              .hexagon Rongotai
+        .south.island
+          ul.even.hex-row.four
+            li
+              .hexagon Nelson
+            li
+              .hexagon Kaikōura
+          ul.odd.hex-row.four
+            li
+              .hexagon Waimakariri
+          ul.even.hex-row.three
+            li
+              .hexagon West Coast-Tasman
+            li
+              .hexagon Selwyn
+            li
+              .hexagon Christchurch East
+          ul.odd.hex-row.three
+            li
+              .hexagon Ilam
+            li
+              .hexagon Christchurch Central
+          ul.even.hex-row.three
+            li
+              .hexagon Wigram
+            li
+              .hexagon Port Hills
+          ul.odd.hex-row.two
+            li
+              .hexagon Rangitata
+          ul.even.hex-row.two
+            li
+              .hexagon Waitaki
+          ul.odd.hex-row.one
+            li
+              .hexagon Dunedin South
+            li
+              .hexagon Dunedin North
+          ul.even.hex-row.one
+            li
+              .hexagon Clutha-Southland
+          ul.odd.hex-row
+            li
+              .hexagon Invercargill
+        .maori.electorates
+          ul.even.hex-row
+            li
+              .hexagon Te Tai Tokerau
+          ul.odd.hex-row
+            li
+              .hexagon Tāmaki Makaurau
+          ul.even.hex-row.one
+            li
+              .hexagon Hauraki-Waikato
+            li
+              .hexagon Waiariki
+          ul.odd.hex-row.one
+            li
+              .hexagon Te Tai Hauāuru
+            li
+              .hexagon Ikaroa-Rāwhiti
+          ul.even.hex-row // AKA the Cook Strait
+            li
+          ul.odd.hex-row.one
+            li
+              .hexagon Te Tai Tonga
+          h6 Māori Electorates
+    .col.party-votes
+      h3 Party Votes
+      input(type="checkbox", name="total-votes", data-on-text="Total", data-off-text="%", data-off-color="warning")
+      table#strong-parties.table
+        thead
+          tr
+            th Party
+            th Votes
+        tbody
+          tr.percentage-warning.hide
+            td(colspan="2")
+              .alert.alert-danger(role="alert") <strong>Oh snap!</strong> Your numbers go over 100%
+      table#weak-parties.table.collapse
+        tbody
+    .col.results
+      h3 Your Parliament
+      table.table
+        thead
+          tr
+            th Party
+            th Electorates
+            th Votes
+            th Seats
+        tbody
+              
+script#dropdown-template(type='text/x-handlebars-template').
+  <div id="dropdown-{{id}}" class="dropdown">
+  <h5>{{electorate}}</h5>
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton-{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{default}}</button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-{{id}}">
+  {{#each options}}
+  <button class="dropdown-item{{#inArray ../weakParties @key}} weak{{/inArray}}" value="{{@key}}">{{this}}</a>
+  {{/each}}
+  </div>
+  <button type="button" class="btn btn-outline-secondary reset"><i class="material-icons">settings_backup_restore</i></button>
+  </div>
+  
+script#table-row(type='text/x-handlebars-template').
+  <td>{{party}}</td>
+  <td><input class="form-control votes-input" type="number" data-party="{{partyCode}}" value="{{value}}" step="0.1" min="0"/></td>
+  
+script#results-row(type='text/x-handlebars-template').
+  <td>{{party}}</td>
+  <td>{{electorates}}</td>
+  <td>{{votes}}%</td>
+  <td>{{seats}}
