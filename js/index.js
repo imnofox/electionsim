@@ -191,7 +191,7 @@ var electorateStatuses = {
   Invercargill: {
     incumbent: "national"
   },
-  
+
   // Māori electorates
   "Te Tai Tokerau": {
     incumbent: "labour"
@@ -238,6 +238,7 @@ var weakParties = [];
 
 var electorateTotals = {};
 var partyVoteTotals = {};
+var percentagesTotals = {};
 
 var totalMode = true;
 
@@ -265,7 +266,7 @@ Array.prototype.forEach.call(
     el.classList.add("party-" + partyCode);
 
     electorateStatuses[electorate].party = partyCode;
-    
+
     if (electorateTotals.hasOwnProperty(partyCode)) {
       electorateTotals[partyCode]++;
     } else {
@@ -277,8 +278,8 @@ Array.prototype.forEach.call(
 var template = Handlebars.compile(document.querySelector("#table-row").innerText);
 for (let party in parties) {
   var tr = document.createElement("tr");
-  tr.innerHTML = template({party: parties[party], partyCode: party, value: partyVoteTotals[party]});
-  
+  tr.innerHTML = template({party: parties[party], partyCode: party, value: totalMode ? partyVoteTotals[party] : (percentagesTotals[party] || 0)});
+
   var strong = (electorateTotals[party] > 0 || party == 'top' | party == 'greens');
   if (strong) {
     document.querySelector(".party-votes #strong-parties tbody").append(tr);
@@ -286,11 +287,11 @@ for (let party in parties) {
     document.querySelector(".party-votes #weak-parties tbody").append(tr);
     weakParties.push(party);
   }
-  
+
   partyVoteTotals[party] = partyVoteTotals[party] || 0;
-  
+
   if (!electorateTotals.hasOwnProperty(party)) {
-   electorateTotals[party] = 0; 
+   electorateTotals[party] = 0;
   }
 }
 generateResults();
@@ -306,7 +307,7 @@ var tip = tippy(".hexagon", {
     var template = Handlebars.compile(source);
     var electorate = hexagon.innerText;
     var partyCode = electorateStatuses[electorate].party;
-    
+
     hexagon.setAttribute(
       "title",
       template({
@@ -340,10 +341,10 @@ document.querySelector("body").addEventListener("click", function(event) {
     // Finds dropdown parent div, then finds the toggle button from there
     button.closest(".dropdown").querySelector(".dropdown-toggle").innerHTML =
       parties[value];
-    
+
     electorateTotals[current]--;
     electorateTotals[value]++;
-    
+
     generateResults();
 
     // Reset button
@@ -361,7 +362,7 @@ document.querySelector("body").addEventListener("click", function(event) {
     // Finds dropdown parent div, then finds the toggle button from there
     button.closest(".dropdown").querySelector(".dropdown-toggle").innerHTML =
       parties[electorateStatuses[electorate].incumbent];
-    
+
     generateResults();
   } else if (
     button.tagName.toLowerCase() === "button" &&
@@ -385,13 +386,15 @@ document.querySelector("body").addEventListener("change", function(event) {
   ) {
     var value = parseFloat(input.value);
     var partyCode = input.getAttribute("data-party");
-    partyVoteTotals[partyCode] = value;
-    
+
+    partyVoteTotals[partyCode] = value / 100 * 2410857;
+
     if (!totalMode) {
       percentagesTotal = 0;
-  
-      for (let party in partyVoteTotals) {
-        percentagesTotal += partyVoteTotals[party];
+      percentagesTotals[partyCode] = value;
+
+      for (let party in percentagesTotals) {
+        percentagesTotal += percentagesTotals[party];
         numbersAddUp = !(percentagesTotal > 100);
       }
 
@@ -402,7 +405,7 @@ document.querySelector("body").addEventListener("change", function(event) {
         warning.classList.remove('hide');
       }
     }
-    
+
     generateResults();
   }
 });
@@ -432,58 +435,57 @@ function generateResults() {
     data.name = parties[party];
     data.votes = partyVoteTotals[party];
     data.electorates = electorateTotals[party] || 0;
+    data.perc = percentagesTotals[party] || ((data.votes / partyVoteSum()) * 100).toFixed(2);
     inputs.push(data);
   }
   var results = sainteLague(inputs);
   console.log(results);
-  
+
   document.querySelector(".results tbody").remove();
   document.querySelector(".results table").append(document.createElement("tbody"));
 
   var template = Handlebars.compile(document.querySelector("#results-row").innerText);
   for (let party in results) {
-    if (totalMode) {
+    /*if (totalMode) {
       var votes = +((results[party].votes / partyVoteSum()) * 100).toFixed(2);
     } else {
-      votes = +results[party].votes;
-    }
-        
+      var votes = +results[party].perc;
+    }*/
+    var votes = results[party].perc;
+
     var tr = document.createElement("tr");
     tr.innerHTML = template({party: results[party].name, electorates: results[party].electorates, votes: votes || 0, seats: results[party].allocated});
-    
+
     if (results[party].allocated == 0 && votes < 0.5) {
       tr.classList.add("weak");
     }
-    
+
     document.querySelector(".results tbody").append(tr);
-      
+
   }
-  
+
   urlifyData();
 }
 
 function partyVoteSum() {
-  if (totalMode) {
-    var total = 0;
-    for (let party in partyVoteTotals) { 
-      total += partyVoteTotals[party];
-    }
-    return total;
-  } else {
-    return 100;
+  var total = 0;
+  for (let party in partyVoteTotals) {
+    total += partyVoteTotals[party];
   }
-  
+  return total;
+
 }
 
 function urlifyData() {
   var data = {
     electorates: electorateStatuses,
     votes: partyVoteTotals,
+    percs: percentagesTotals,
     totalMode
   };
-  
+
   var encoded = b64EncodeUnicode(JSON.stringify(data));
-  
+
   if (history.pushState) {
     history.pushState(null, null, '#' + encoded);
   } else {
@@ -498,9 +500,10 @@ function deUrlifyData() {
     console.log(decoded);
     var data = JSON.parse(decoded);
     console.log(data);
-    
+
     electorateStatuses = data.electorates;
     partyVoteTotals = data.votes; //TODO: fill fields
+    percentagesTotals = data.percs || {};
     totalMode = data.totalMode;
   }
 }
